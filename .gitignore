@@ -1,0 +1,8 @@
+/build
+/ext
+/build
+*.log
+bootstrap.*
+classic.json*
+modern.json*
+.sencha
