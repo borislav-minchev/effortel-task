@@ -11,8 +11,13 @@ Ext.define('MyApp.view.photos.PhotosGrid', {
 	fullscreen: true,
 
 	requires: [
-		'MyApp.view.photos.PhotosViewModel'
+		'MyApp.view.photos.PhotosViewModel',
+		'Ext.dataview.plugin.ListPaging'
 	],
+
+	plugins: {
+        listpaging: true
+    },
 
 	viewModel: 'photosViewModel',
 

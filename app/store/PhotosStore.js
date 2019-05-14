@@ -4,6 +4,7 @@ Ext.define('MyApp.store.PhotosStore', {
 	autoLoad: true,
 	sortOnLoad: true,
 	fields: ['thumbnailUrl', 'title'],
+	pageSize: 16,
 
 	grouper: {
         groupFn: function(record) {
