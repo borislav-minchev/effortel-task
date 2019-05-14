@@ -1,0 +1,22 @@
+.photo-row {
+	height: 80px;
+	position: relative;
+	float: left;
+	width: 400px;
+	border: 1px solid lightseagreen;
+	padding: 10px;
+}
+
+.photo-row {
+	img {
+		height: 70%;
+		position: absolute;
+		display: inline-block;
+		border-radius: 50%;
+	}
+
+	h3 {
+		display: inline-block;
+		margin-left: 60px;
+	}
+}

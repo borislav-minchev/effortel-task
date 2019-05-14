@@ -4,8 +4,8 @@ Ext.define('MyApp.view.photos.PhotosViewModel', {
 	alias: 'viewmodel.photosViewModel',
 
 	requires: [
-        'MyApp.store.PhotosStore'
-    ],
+		'MyApp.store.PhotosStore'
+	],
 
 	stores: {
 		photos: {

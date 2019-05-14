@@ -1,6 +1,7 @@
 /build
 /ext
 /build
+/.vscode
 *.log
 bootstrap.*
 classic.json*

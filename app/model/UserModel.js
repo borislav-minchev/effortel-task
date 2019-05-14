@@ -1,10 +1,14 @@
 Ext.define('MyApp.model.UserModel', {
-    extend: 'Ext.data.Model',
+	extend: 'Ext.data.Model',
 
-    fields: [{
-        id: 'id',
-        name: 'name',
-        email: 'email',
-        street: 'street'
-    }]
+	fields: [{
+		firstName: 'firstName',
+		email: 'email',
+		address: 'address'
+	}],
+
+	proxy: {
+		type: 'rest',
+		url: 'https://node-users-api.herokuapp.com/api/users'
+	}
 });

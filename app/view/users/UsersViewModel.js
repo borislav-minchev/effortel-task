@@ -4,16 +4,16 @@ Ext.define('MyApp.view.users.UsersViewModel', {
 	alias: 'viewmodel.usersViewModel',
 
 	requires: [
-        'MyApp.store.UsersStore'
-    ],
+		'MyApp.store.UsersStore'
+	],
 
 	stores: {
 		users: {
 			type: 'users',
-            autoLoad: false,
-            listeners: {
-                load: 'onGetUsers'
-            }
+			autoLoad: false,
+			listeners: {
+				load: 'onGetUsers'
+			}
 		}
 	}
 });

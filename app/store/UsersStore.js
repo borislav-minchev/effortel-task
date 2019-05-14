@@ -1,12 +1,12 @@
 Ext.define('MyApp.store.UsersStore', {
 	extend: 'Ext.data.Store',
     alias: 'store.users',
-    storeId: 'mystore',
+    storeId: 'users-store',
 
 	model: 'MyApp.model.UserModel',
 
 	proxy: {
-		type: 'ajax',
-        url: 'http://jsonplaceholder.typicode.com/users'
+		type: 'rest',
+        url: 'https://node-users-api.herokuapp.com/api/users'
 	}
 });
