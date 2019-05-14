@@ -3,6 +3,7 @@ Ext.define('MyApp.view.users.AddNewUserDialog', {
 	xtype: 'addNewUserDialog',
 	title: 'Add new user',
 	closable: true,
+	draggable: false,
 	controller: 'new-users-controller',
 	defaultType: 'textfield',
 

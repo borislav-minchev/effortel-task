@@ -3,9 +3,9 @@ Ext.define('MyApp.view.main.Main', {
 	controller: 'main',
 
 	requires: [
-        'MyApp.view.users.Users',
-        'MyApp.view.photos.Photos'
-    ],
+		'MyApp.view.users.Users',
+		'MyApp.view.photos.Photos'
+	],
 
 	items: [
 		{

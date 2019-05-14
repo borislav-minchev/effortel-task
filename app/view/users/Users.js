@@ -41,7 +41,7 @@ Ext.define('MyApp.view.users.Users', {
 			columns: [
 				{
 					text: 'ID',
-					dataIndex: 'id',
+					dataIndex: 'id'
 				},
 				{
 					text: 'Name',
@@ -57,6 +57,29 @@ Ext.define('MyApp.view.users.Users', {
 					text: 'Address',
 					dataIndex: 'address',
 					flex: 1
+				},
+				{
+					cell: {
+						xtype: 'widgetcell',
+						widget: {
+							xtype: 'panel',
+							items: [{
+								xtype: 'button',
+								iconCls: 'x-fa fa-edit',
+								bind: {
+									tooltip: 'Edit user'
+								},
+								handler: 'onCellEditUser'
+							}, {
+								xtype: 'button',
+								iconCls: 'x-fa fa-times-circle',
+								bind: {
+									tooltip: 'Delete user'
+								},
+								handler: 'onCellDeleteUser'
+							}]
+					}
+					}
 				}
 			]
 		}
