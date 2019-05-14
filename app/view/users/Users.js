@@ -20,14 +20,14 @@ Ext.define('MyApp.view.users.Users', {
 			xtype: 'panel',
 			title: 'Users',
 			tools: [
-				{ 
+				{
 					iconCls: 'x-fa fa-sync',
 					handler: 'onRefreshClick'
 				},
-				{ 
+				{
 					iconCls: 'x-fa fa-plus',
 					handler: 'onOpenNewUserDialog'
-				}				
+				}
 			]
 		},
 		{
@@ -42,11 +42,10 @@ Ext.define('MyApp.view.users.Users', {
 				{
 					text: 'ID',
 					dataIndex: 'id',
-					maxWidth: 40
 				},
 				{
 					text: 'Name',
-					dataIndex: 'name',
+					dataIndex: 'firstName',
 					flex: 1
 				},
 				{
@@ -55,8 +54,8 @@ Ext.define('MyApp.view.users.Users', {
 					flex: 1
 				},
 				{
-					text: 'Street',
-					dataIndex: 'street',
+					text: 'Address',
+					dataIndex: 'address',
 					flex: 1
 				}
 			]
