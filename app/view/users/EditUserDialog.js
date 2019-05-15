@@ -1,11 +1,10 @@
-Ext.define('MyApp.view.users.AddNewUserDialog', {
+Ext.define('MyApp.view.users.EditUserDialog', {
 	extend: 'Ext.Dialog',
-	xtype: 'addNewUserDialog',
-	title: 'Add new user',
+	xtype: 'editUserDialog',
+	title: 'Edit user',
 	closable: true,
 	draggable: false,
-	controller: 'new-user-controller',
-	defaultType: 'textfield',
+	controller: 'edit-user-controller',
 
 	requires: [
 		'Ext.field.Text',
@@ -15,6 +14,7 @@ Ext.define('MyApp.view.users.AddNewUserDialog', {
 
 	items: [{
 			xtype: 'formpanel',
+			url: 'https://node-users-api.herokuapp.com/api/users',
 
 			items: [{
 					xtype: 'textfield',
@@ -36,13 +36,16 @@ Ext.define('MyApp.view.users.AddNewUserDialog', {
 				}
 			]
 		}
-
 	],
 
 	buttons: {
 		add: {
-			text: 'Add',
-			handler: 'onAddUser'
+			text: 'Edit',
+			handler: 'onEditUser'
+		},
+		close: {
+			text: 'Cancel',
+			handler: 'onCloseEditUser'
 		}
 	}
 });

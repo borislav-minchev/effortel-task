@@ -1,6 +1,6 @@
 Ext.define('MyApp.controllers.AddNewUserDialogController', {
 	extend: 'Ext.app.ViewController',
-	alias: 'controller.new-users-controller',
+	alias: 'controller.new-user-controller',
 
 	requires: [
 		'MyApp.view.users.AddNewUserDialog'
@@ -16,7 +16,7 @@ Ext.define('MyApp.controllers.AddNewUserDialogController', {
 		delete user.id;
 
 		user.save({
-			success: function() {
+			success: function () {
 				const store = Ext.getStore('users-store');
 				store.load();
 

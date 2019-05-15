@@ -15,12 +15,10 @@ Ext.define('MyApp.view.users.Users', {
 
 	layout: 'vbox',
 
-	items: [
-		{
+	items: [{
 			xtype: 'panel',
 			title: 'Users',
-			tools: [
-				{
+			tools: [{
 					iconCls: 'x-fa fa-sync',
 					handler: 'onRefreshClick'
 				},
@@ -38,8 +36,7 @@ Ext.define('MyApp.view.users.Users', {
 				store: '{users}'
 			},
 
-			columns: [
-				{
+			columns: [{
 					text: 'ID',
 					dataIndex: 'id'
 				},
@@ -78,7 +75,7 @@ Ext.define('MyApp.view.users.Users', {
 								},
 								handler: 'onCellDeleteUser'
 							}]
-					}
+						}
 					}
 				}
 			]

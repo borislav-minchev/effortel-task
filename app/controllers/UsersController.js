@@ -4,12 +4,12 @@ Ext.define('MyApp.controllers.UsersController', {
 
 	requires: ['MyApp.view.users.AddNewUserDialog'],
 
-	onRefreshClick: function() {
+	onRefreshClick: function () {
 		const store = Ext.getStore('users-store');
 		store.load();
 	},
 
-	onOpenNewUserDialog: function() {
+	onOpenNewUserDialog: function () {
 		const dialog = Ext.create({
 			xtype: 'addNewUserDialog'
 		});
@@ -17,7 +17,7 @@ Ext.define('MyApp.controllers.UsersController', {
 		dialog.show();
 	},
 
-	onGetUsers: function(success, result) {
+	onGetUsers: function (success, result) {
 		if (result) {
 			//debugger;
 		} else {
@@ -25,22 +25,38 @@ Ext.define('MyApp.controllers.UsersController', {
 		}
 	},
 
-	onCellEditUser: function(btn) {
+	onCellEditUser: function (btn) {
 		const cell = btn.up();
 		const record = cell.up().getRecord();
 
-		debugger;
+		const dialog = Ext.create({
+			xtype: 'editUserDialog'
+		});
+
+		const form = dialog.down('formpanel');
+		form.setValues(record.data);
+
+		dialog.show();
 	},
 
-	onCellDeleteUser: function(btn) {
-		Ext.Msg.confirm(
-			'Confirmation',
-			'Are you sure you want to do that?',
-			function(answer) {
-                debugger;
-                if (answer == 'yes') {
+	onCellDeleteUser: function (btn) {
+		const cell = btn.up();
+		const record = cell.up().getRecord();
 
-                }
+		Ext.Msg.confirm(
+			'Delete user',
+			'Are you sure you want to delete this user?',
+			function (answer) {
+				if (answer == 'yes') {
+					const user = Ext.create('MyApp.model.UserModel', record);
+
+					user.erase({
+						success: function () {
+							const store = Ext.getStore('users-store');
+							store.load();
+						}
+					});
+				}
 			}
 		);
 	}
