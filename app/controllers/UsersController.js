@@ -29,8 +29,12 @@ Ext.define('MyApp.controllers.UsersController', {
 		const cell = btn.up();
 		const record = cell.up().getRecord();
 
+		debugger;
+		const model = record.store.getModel();
+
 		const dialog = Ext.create({
-			xtype: 'editUserDialog'
+			xtype: 'editUserDialog',
+			model: model
 		});
 
 		const form = dialog.down('formpanel');

@@ -16,7 +16,7 @@ Ext.define('MyApp.controllers.AddNewUserDialogController', {
 		delete user.id;
 
 		user.save({
-			success: function () {
+			success: function (record) {
 				const store = Ext.getStore('users-store');
 				store.load();
 
