@@ -5,7 +5,7 @@ Ext.define('MyApp.view.photos.PhotosGrid', {
 	pinHeaders: false,
 	scrollable: true,
 	fullscreen: true,
-	itemTpl: '<div class="photo-row"><img src="{thumbnailUrl}" /><h3>{title}</h3></div>',
+	itemTpl: '<div class="photo-row"><img class="list-item" src="{thumbnailUrl}"/><h3>{title}</h3></div>',
 
 	requires: [
 		'MyApp.view.photos.PhotosViewModel',
@@ -14,7 +14,7 @@ Ext.define('MyApp.view.photos.PhotosGrid', {
 
 	plugins: {
 		listpaging: {
-			autoPaging: true,
+			autoPaging: false,
 			bufferZone: 20
 		}
 	},
@@ -23,5 +23,9 @@ Ext.define('MyApp.view.photos.PhotosGrid', {
 
 	bind: {
 		store: '{photos}'
+	},
+
+	afterRender: function() {
+		debugger;
 	}
 });

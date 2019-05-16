@@ -64,8 +64,11 @@ Ext.define('MyApp.view.users.Users', {
 							iconCls: 'x-fa fa-ellipsis-v',
 							arrowVisible: false,
 							menu: {
-								items: [{
+								defaults: {
 									xtype: 'button',
+									margin: '0'
+								},
+								items: [{
 									iconCls: 'x-fa fa-edit',
 									text: 'Edit',
 									bind: {
@@ -73,7 +76,6 @@ Ext.define('MyApp.view.users.Users', {
 									},
 									handler: 'onCellEditUser'
 								}, {
-									xtype: 'button',
 									iconCls: 'x-fa fa-times-circle',
 									text: 'Delete',
 									bind: {
