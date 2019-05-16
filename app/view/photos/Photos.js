@@ -3,6 +3,6 @@ Ext.define('MyApp.view.photos.Photos', {
 	xtype: 'photos',
 
 	items: [{
-        xtype: 'photos-grid'
-    }]
+		xtype: 'photos-grid'
+	}]
 });

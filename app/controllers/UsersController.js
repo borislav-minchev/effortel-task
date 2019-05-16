@@ -4,12 +4,12 @@ Ext.define('MyApp.controllers.UsersController', {
 
 	requires: ['MyApp.view.users.AddNewUserDialog'],
 
-	onRefreshClick: function () {
+	onRefreshClick: () => {
 		const store = Ext.getStore('users-store');
 		store.load();
 	},
 
-	onOpenNewUserDialog: function () {
+	onOpenNewUserDialog: () => {
 		const dialog = Ext.create({
 			xtype: 'addNewUserDialog'
 		});
@@ -17,24 +17,19 @@ Ext.define('MyApp.controllers.UsersController', {
 		dialog.show();
 	},
 
-	onGetUsers: function (success, result) {
-		if (result) {
-			//debugger;
-		} else {
+	onGetUsers: (success, result) => {
+		if (!result) {
 			Ext.Msg.alert('Error', 'There was an error retrieving the weather.');
 		}
 	},
 
-	onCellEditUser: function (btn) {
+	onCellEditUser: (btn) => {
 		const cell = btn.up();
 		const record = cell.up().getRecord();
 
-		debugger;
-		const model = record.store.getModel();
-
 		const dialog = Ext.create({
 			xtype: 'editUserDialog',
-			model: model
+			record: record
 		});
 
 		const form = dialog.down('formpanel');
@@ -43,19 +38,17 @@ Ext.define('MyApp.controllers.UsersController', {
 		dialog.show();
 	},
 
-	onCellDeleteUser: function (btn) {
+	onCellDeleteUser: (btn) => {
 		const cell = btn.up();
 		const record = cell.up().getRecord();
 
 		Ext.Msg.confirm(
 			'Delete user',
 			'Are you sure you want to delete this user?',
-			function (answer) {
+			(answer) => {
 				if (answer == 'yes') {
-					const user = Ext.create('MyApp.model.UserModel', record);
-
-					user.erase({
-						success: function () {
+					record.erase({
+						success: () => {
 							const store = Ext.getStore('users-store');
 							store.load();
 						}

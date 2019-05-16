@@ -7,9 +7,9 @@ Ext.define('MyApp.store.PhotosStore', {
 	pageSize: 16,
 
 	grouper: {
-        groupFn: function(record) {
-            return record.get('albumId');
-        }
+		groupFn: (record) => {
+			return record.get('albumId');
+		}
 	},
 
 	proxy: {

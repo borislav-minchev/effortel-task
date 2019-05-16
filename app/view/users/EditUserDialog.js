@@ -14,7 +14,6 @@ Ext.define('MyApp.view.users.EditUserDialog', {
 
 	items: [{
 			xtype: 'formpanel',
-			url: 'https://node-users-api.herokuapp.com/api/users',
 
 			items: [{
 					xtype: 'textfield',

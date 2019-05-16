@@ -6,21 +6,23 @@ Ext.define('MyApp.controllers.EditUserDialogController', {
 		'MyApp.view.users.EditUserDialog'
 	],
 
-	onEditUser: function (btn) {
+	onEditUser: function () {
 		const dialog = this.getView();
 		const form = dialog.down('formpanel');
 		const data = form.getValues();
-		const user = Ext.create('MyApp.model.UserModel', data);
-		debugger;
-		const model = dialog.model;
-		// tuka trqbva da se vzeme modela, a ne da se pravi nov
+		const model = dialog.getRecord();
 
 		model.set(data);
+		model.save({
+			success: () => {
+				this.onCloseEditUser();
+			}
+		});
 	},
 
-	onCloseEditUser: function (btn) {
+	onCloseEditUser: function () {
 		const dialog = this.getView();
 
-		dialog.hide();
+		dialog.destroy();
 	}
 });

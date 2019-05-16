@@ -16,13 +16,13 @@ Ext.define('MyApp.controllers.AddNewUserDialogController', {
 		delete user.id;
 
 		user.save({
-			success: function (record) {
+			success: () => {
 				const store = Ext.getStore('users-store');
 				store.load();
 
 				const dialog = this.getView();
 				dialog.close();
-			}.bind(this)
+			}
 		});
 	}
 });

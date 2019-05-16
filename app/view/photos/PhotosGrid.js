@@ -2,13 +2,11 @@ Ext.define('MyApp.view.photos.PhotosGrid', {
 	extend: 'Ext.dataview.List',
 	xtype: 'photos-grid',
 	indexBar: true,
-    grouped: true,
-    pinHeaders: false,
-	itemTpl: '<div class="photo-row"><img src="{thumbnailUrl}" /><h3>{title}</h3></div>',
-
+	grouped: true,
+	pinHeaders: false,
 	scrollable: true,
-
 	fullscreen: true,
+	itemTpl: '<div class="photo-row"><img src="{thumbnailUrl}" /><h3>{title}</h3></div>',
 
 	requires: [
 		'MyApp.view.photos.PhotosViewModel',
@@ -16,8 +14,8 @@ Ext.define('MyApp.view.photos.PhotosGrid', {
 	],
 
 	plugins: {
-        listpaging: true
-    },
+		listpaging: true
+	},
 
 	viewModel: 'photosViewModel',
 
