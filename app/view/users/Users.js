@@ -17,6 +17,7 @@ Ext.define('MyApp.view.users.Users', {
 
 	items: [{
 			xtype: 'panel',
+			height: '10%',
 			title: 'Users',
 			tools: [{
 					iconCls: 'x-fa fa-sync',
@@ -30,7 +31,7 @@ Ext.define('MyApp.view.users.Users', {
 		},
 		{
 			xtype: 'grid',
-			height: '100%',
+			height: '90%',
 
 			bind: {
 				store: '{users}'
@@ -59,22 +60,28 @@ Ext.define('MyApp.view.users.Users', {
 					cell: {
 						xtype: 'widgetcell',
 						widget: {
-							xtype: 'panel',
-							items: [{
-								xtype: 'button',
-								iconCls: 'x-fa fa-edit',
-								bind: {
-									tooltip: 'Edit user'
-								},
-								handler: 'onCellEditUser'
-							}, {
-								xtype: 'button',
-								iconCls: 'x-fa fa-times-circle',
-								bind: {
-									tooltip: 'Delete user'
-								},
-								handler: 'onCellDeleteUser'
-							}]
+							xtype: 'button',
+							iconCls: 'x-fa fa-ellipsis-v',
+							arrowVisible: false,
+							menu: {
+								items: [{
+									xtype: 'button',
+									iconCls: 'x-fa fa-edit',
+									text: 'Edit',
+									bind: {
+										tooltip: 'Edit user'
+									},
+									handler: 'onCellEditUser'
+								}, {
+									xtype: 'button',
+									iconCls: 'x-fa fa-times-circle',
+									text: 'Delete',
+									bind: {
+										tooltip: 'Delete user'
+									},
+									handler: 'onCellDeleteUser'
+								}]
+							}
 						}
 					}
 				}

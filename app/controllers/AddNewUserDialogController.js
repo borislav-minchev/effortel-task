@@ -22,6 +22,8 @@ Ext.define('MyApp.controllers.AddNewUserDialogController', {
 
 				const dialog = this.getView();
 				dialog.close();
+
+				Ext.toast('User added successfully', 2000);
 			}
 		});
 	}

@@ -1,7 +1,6 @@
 Ext.define('MyApp.view.photos.PhotosGrid', {
 	extend: 'Ext.dataview.List',
 	xtype: 'photos-grid',
-	indexBar: true,
 	grouped: true,
 	pinHeaders: false,
 	scrollable: true,
@@ -14,7 +13,10 @@ Ext.define('MyApp.view.photos.PhotosGrid', {
 	],
 
 	plugins: {
-		listpaging: true
+		listpaging: {
+			autoPaging: true,
+			bufferZone: 20
+		}
 	},
 
 	viewModel: 'photosViewModel',

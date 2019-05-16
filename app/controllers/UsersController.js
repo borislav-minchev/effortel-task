@@ -19,12 +19,13 @@ Ext.define('MyApp.controllers.UsersController', {
 
 	onGetUsers: (success, result) => {
 		if (!result) {
-			Ext.Msg.alert('Error', 'There was an error retrieving the weather.');
+			Ext.toast('There was an error retrieving the data.', 2000);
 		}
 	},
 
 	onCellEditUser: (btn) => {
-		const cell = btn.up();
+		const menu = btn.up();
+		const cell = menu.up();
 		const record = cell.up().getRecord();
 
 		const dialog = Ext.create({
@@ -35,11 +36,12 @@ Ext.define('MyApp.controllers.UsersController', {
 		const form = dialog.down('formpanel');
 		form.setValues(record.data);
 
+		menu.hide();
 		dialog.show();
 	},
 
 	onCellDeleteUser: (btn) => {
-		const cell = btn.up();
+		const cell = btn.up().up();
 		const record = cell.up().getRecord();
 
 		Ext.Msg.confirm(
@@ -51,6 +53,7 @@ Ext.define('MyApp.controllers.UsersController', {
 						success: () => {
 							const store = Ext.getStore('users-store');
 							store.load();
+							Ext.toast('User deleted successfully', 2000);
 						}
 					});
 				}

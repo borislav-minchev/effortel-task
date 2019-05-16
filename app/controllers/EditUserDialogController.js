@@ -16,13 +16,13 @@ Ext.define('MyApp.controllers.EditUserDialogController', {
 		model.save({
 			success: () => {
 				this.onCloseEditUser();
+				Ext.toast('User edited successfully', 2000);
 			}
 		});
 	},
 
 	onCloseEditUser: function () {
 		const dialog = this.getView();
-
 		dialog.destroy();
 	}
 });
