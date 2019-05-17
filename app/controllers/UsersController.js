@@ -65,33 +65,21 @@ Ext.define('MyApp.controllers.UsersController', {
 		const tabPanel = grid.up('tabpanel');
 		const userData = record[0].getData();
 		const id = 'user' + userData.id.replace(/-/g, '');
-		const tabs = tabPanel.getItems();
-		let matchingTab;
+		let tabToSelect;
 
-		matchingTab = Ext.getCmp(id);
+		tabToSelect = Ext.getCmp(id);
 
-		if (!matchingTab) {
-			/*
-			tabPanel.add({
-				title: userData.firstName,
-				id: id,
-				tpl: '<div><b>Name: </b>{firstName}</div>',
-				data: userData,
-				closable: true
-			});
-			*/
-
-
+		if (!tabToSelect) {
 			const userTab = Ext.create('MyApp.view.users.UserTab', {
 				title: userData.firstName,
-				id: id
+				id: id,
+				firstName: userData.firstName
 			});
 
 			tabPanel.add(userTab);
-
-			matchingTab = userTab;
+			tabToSelect = userTab;
 		}
 
-		tabPanel.setActiveItem(matchingTab);
+		tabPanel.setActiveItem(tabToSelect);
 	}
 });
