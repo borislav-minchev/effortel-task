@@ -19,6 +19,7 @@ Ext.define('MyApp.view.users.Users', {
 			xtype: 'panel',
 			height: '10%',
 			title: 'Users',
+			id: 'tab-users',
 			tools: [{
 					iconCls: 'x-fa fa-sync',
 					handler: 'onRefreshClick'
@@ -32,6 +33,10 @@ Ext.define('MyApp.view.users.Users', {
 		{
 			xtype: 'grid',
 			height: '90%',
+
+			listeners: {
+				select: 'onUserRowClick'
+			},
 
 			bind: {
 				store: '{users}'

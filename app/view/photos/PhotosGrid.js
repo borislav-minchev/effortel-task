@@ -23,9 +23,5 @@ Ext.define('MyApp.view.photos.PhotosGrid', {
 
 	bind: {
 		store: '{photos}'
-	},
-
-	afterRender: function() {
-		debugger;
 	}
 });

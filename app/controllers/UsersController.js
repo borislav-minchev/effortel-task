@@ -59,5 +59,28 @@ Ext.define('MyApp.controllers.UsersController', {
 				}
 			}
 		);
+	},
+
+	onUserRowClick: function (grid, record, index, eOpts) {
+		const tabPanel = grid.up('tabpanel');
+		const userData = record[0].getData();
+		const id = 'user' + userData.id.replace(/-/g, '');
+		const tabs = tabPanel.getItems();
+		let matchingTab;
+
+		matchingTab = Ext.getCmp(id);
+
+		if (!matchingTab) {
+			tabPanel.add({
+				title: userData.firstName,
+				id: id,
+				tpl: '<div><b>Name: </b>{firstName}</div>',
+				data: userData,
+				closable: true
+			});
+			matchingTab = tabs.indexMap[id] - 1;
+		}
+
+		tabPanel.setActiveItem(matchingTab);
 	}
 });
