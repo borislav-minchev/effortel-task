@@ -61,7 +61,7 @@ Ext.define('MyApp.controllers.UsersController', {
 		);
 	},
 
-	onUserRowClick: function (grid, record, index, eOpts) {
+	onUserRowClick: function (grid, record) {
 		const tabPanel = grid.up('tabpanel');
 		const userData = record[0].getData();
 		const id = 'user' + userData.id.replace(/-/g, '');
@@ -71,6 +71,7 @@ Ext.define('MyApp.controllers.UsersController', {
 		matchingTab = Ext.getCmp(id);
 
 		if (!matchingTab) {
+			/*
 			tabPanel.add({
 				title: userData.firstName,
 				id: id,
@@ -78,7 +79,17 @@ Ext.define('MyApp.controllers.UsersController', {
 				data: userData,
 				closable: true
 			});
-			matchingTab = tabs.indexMap[id] - 1;
+			*/
+
+
+			const userTab = Ext.create('MyApp.view.users.UserTab', {
+				title: userData.firstName,
+				id: id
+			});
+
+			tabPanel.add(userTab);
+
+			matchingTab = userTab;
 		}
 
 		tabPanel.setActiveItem(matchingTab);
