@@ -3,7 +3,8 @@ Ext.define('MyApp.view.main.Main', {
 
 	requires: [
 		'MyApp.view.users.Users',
-		'MyApp.view.photos.Photos'
+		'MyApp.view.photos.Photos',
+		'MyApp.view.main.DataView'
 	],
 
 	items: [{
@@ -14,6 +15,11 @@ Ext.define('MyApp.view.main.Main', {
 		{
 			title: 'Photos',
 			xtype: 'photos',
+			iconCls: 'x-fa fa-images'
+		},
+		{
+			title: 'Data',
+			xtype: 'data-view',
 			iconCls: 'x-fa fa-images'
 		}
 	]
